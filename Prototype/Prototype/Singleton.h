@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSString *latitude;
 @property (strong, nonatomic) NSString *longitude;
 @property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *city;   //And city  will be stored separately
 @property (strong, nonatomic) NSString *zipcode;
 @property (strong, nonatomic) NSString *weatherToday;
 @property (strong, nonatomic) NSString *weatherTomorrow;

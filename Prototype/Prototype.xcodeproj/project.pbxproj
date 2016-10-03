@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162B6FE51DA25A7B00153CA3 /* Storage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 162B6FE21DA25A7B00153CA3 /* Storage+CoreDataProperties.m */; };
+		162B6FE61DA25A7B00153CA3 /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 162B6FE41DA25A7B00153CA3 /* Storage.m */; };
+		162B6FEA1DA270F100153CA3 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 162B6FE91DA270F100153CA3 /* DetailVC.m */; };
 		163BB1C01DA14FE100E1A987 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 163BB1BF1DA14FE100E1A987 /* main.m */; };
 		163BB1C31DA14FE100E1A987 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 163BB1C21DA14FE100E1A987 /* AppDelegate.m */; };
 		163BB1C61DA14FE100E1A987 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 163BB1C51DA14FE100E1A987 /* ViewController.m */; };
@@ -32,6 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		162B6FE11DA25A7B00153CA3 /* Storage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Storage+CoreDataProperties.h"; sourceTree = "<group>"; };
+		162B6FE21DA25A7B00153CA3 /* Storage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Storage+CoreDataProperties.m"; sourceTree = "<group>"; };
+		162B6FE31DA25A7B00153CA3 /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
+		162B6FE41DA25A7B00153CA3 /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
+		162B6FE81DA270F100153CA3 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		162B6FE91DA270F100153CA3 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		163BB1BB1DA14FE100E1A987 /* Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163BB1BF1DA14FE100E1A987 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		163BB1C11DA14FE100E1A987 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,9 +93,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		162B6FE71DA25A8300153CA3 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				162B6FE11DA25A7B00153CA3 /* Storage+CoreDataProperties.h */,
+				162B6FE21DA25A7B00153CA3 /* Storage+CoreDataProperties.m */,
+				162B6FE31DA25A7B00153CA3 /* Storage.h */,
+				162B6FE41DA25A7B00153CA3 /* Storage.m */,
+			);
+			name = CoreDataModel;
+			sourceTree = "<group>";
+		};
 		163BB1B21DA14FE100E1A987 = {
 			isa = PBXGroup;
 			children = (
+				162B6FE71DA25A8300153CA3 /* CoreDataModel */,
 				163BB1E11DA1518800E1A987 /* CoreLocation.framework */,
 				163BB1BD1DA14FE100E1A987 /* Prototype */,
 				163BB1BC1DA14FE100E1A987 /* Products */,
@@ -120,6 +141,8 @@
 				163BB2421DA185FD00E1A987 /* MainVC.m */,
 				163BB2441DA1860F00E1A987 /* HistoryVC.h */,
 				163BB2451DA1860F00E1A987 /* HistoryVC.m */,
+				162B6FE81DA270F100153CA3 /* DetailVC.h */,
+				162B6FE91DA270F100153CA3 /* DetailVC.m */,
 				163BB1C71DA14FE100E1A987 /* Main.storyboard */,
 				163BB1CD1DA14FE100E1A987 /* Assets.xcassets */,
 				163BB1CF1DA14FE100E1A987 /* LaunchScreen.storyboard */,
@@ -232,10 +255,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				163BB2461DA1860F00E1A987 /* HistoryVC.m in Sources */,
+				162B6FEA1DA270F100153CA3 /* DetailVC.m in Sources */,
 				163BB1CC1DA14FE100E1A987 /* Prototype.xcdatamodeld in Sources */,
 				163BB2431DA185FD00E1A987 /* MainVC.m in Sources */,
 				163BB1DA1DA14FFA00E1A987 /* Singleton.m in Sources */,
 				163BB2361DA1843100E1A987 /* FKDataModel.xcdatamodeld in Sources */,
+				162B6FE51DA25A7B00153CA3 /* Storage+CoreDataProperties.m in Sources */,
 				163BB1E51DA151BB00E1A987 /* CoreDataManager.m in Sources */,
 				163BB2381DA1843100E1A987 /* FKForecastRequester.m in Sources */,
 				163BB1DD1DA1510100E1A987 /* CurrentWeather.m in Sources */,
@@ -244,6 +269,7 @@
 				163BB23A1DA1843100E1A987 /* FKResponseParser.m in Sources */,
 				163BB1E01DA1512900E1A987 /* CurrentLocation.m in Sources */,
 				163BB1C61DA14FE100E1A987 /* ViewController.m in Sources */,
+				162B6FE61DA25A7B00153CA3 /* Storage.m in Sources */,
 				163BB23B1DA1843100E1A987 /* FKStore.m in Sources */,
 				163BB2371DA1843100E1A987 /* FKForecast.m in Sources */,
 				163BB1C31DA14FE100E1A987 /* AppDelegate.m in Sources */,
@@ -394,6 +420,7 @@
 				163BB1D71DA14FE100E1A987 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -72,6 +72,7 @@
          if (error == nil && [placemarks count] > 0) {
              placemark = [placemarks lastObject];
              
+             //страна, регион, город, улица, дом
              [Singleton sharedInstance].address = [NSString stringWithFormat:@"%@, %@, %@, %@, %@",
                              placemark.country,
                              placemark.administrativeArea,
@@ -79,10 +80,10 @@
                              placemark.thoroughfare,
                              placemark.subThoroughfare];
              
-             //страна, регион, город, улица, дом
+             [Singleton sharedInstance].city = placemark.locality;
              [Singleton sharedInstance].zipcode = placemark.postalCode;
-             [Singleton sharedInstance].longitude = [NSString stringWithFormat:@"%.8f", crnLoc.coordinate.longitude];
-             [Singleton sharedInstance].latitude = [NSString stringWithFormat:@"%.8f", crnLoc.coordinate.latitude];
+             [Singleton sharedInstance].longitude = [NSString stringWithFormat:@"%.6f", crnLoc.coordinate.longitude];
+             [Singleton sharedInstance].latitude = [NSString stringWithFormat:@"%.6f", crnLoc.coordinate.latitude];
              
              //как только мы получим все необходимые занчения, мы вызовем их сохрание или еще что-нить
              if([Singleton sharedInstance].address)
