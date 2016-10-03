@@ -23,7 +23,7 @@
     
     CoreDataManager *mngr = [CoreDataManager new];
     self.myManager = mngr;
-    NSLog(@"History %lu", [[self.myManager getDataFromCoreDataStorage] count]);
+    NSLog(@"Now %lu objects in History", [[self.myManager getDataFromCoreDataStorage] count]);
 }
 
 -(void)viewWillAppear{
@@ -69,8 +69,10 @@
 //    self.myDetailVC.delegate = self;
 //
 //    self.myDetailVC.storage = [self.arrayForCoreData objectAtIndex:indexPath.row];
-//    
-//    [self.navigationController pushViewController:self.myDetailVC animated:YES];
+
+    self.myDetailVC.hidesBottomBarWhenPushed = YES;
+
+    [self.navigationController pushViewController:self.myDetailVC animated:YES];
 }
 
 

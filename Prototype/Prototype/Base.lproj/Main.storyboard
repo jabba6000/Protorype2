@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--DetailVC-->
+        <!--Archive Note-->
         <scene sceneID="6xK-RH-s42">
             <objects>
-                <viewController storyboardIdentifier="Detail" id="nb3-jC-2CF" customClass="DetailVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" title="Archive Note" id="nb3-jC-2CF" customClass="DetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="09H-Uu-phM"/>
                         <viewControllerLayoutGuide type="bottom" id="vbq-tM-4Bm"/>
@@ -16,7 +16,15 @@
                     <view key="view" contentMode="scaleToFill" id="the-HO-6ej">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXk-fC-afV">
+                                <rect key="frame" x="35" y="85" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.70758179529999998" green="0.82788905199999996" blue="0.54393875840000006" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -24,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="799.5" y="-103.5"/>
         </scene>
-        <!--HistoryVC-->
+        <!--History-->
         <scene sceneID="4GC-yW-CER">
             <objects>
-                <viewController id="GIT-uD-UXN" customClass="HistoryVC" sceneMemberID="viewController">
+                <viewController title="History" id="GIT-uD-UXN" customClass="HistoryVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="PBj-As-q33">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

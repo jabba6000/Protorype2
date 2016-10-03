@@ -64,9 +64,7 @@
     if (mutableFetchResults == nil){
         //handle error
     }
-    
-    NSLog(@"fetch request array contain %lu", [mutableFetchResults count]);
-    
+        
 //    NSMutableArray *arrayWithData = [NSMutableArray new];
 //    
 //    [arrayWithData arrayByAddingObjectsFromArray:mutableFetchResults];
