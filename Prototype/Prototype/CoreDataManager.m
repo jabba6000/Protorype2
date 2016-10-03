@@ -13,8 +13,9 @@
 
 -(void)saveToCoreDataStorage{
     /*
-     Here we create an instance of Storage-class, 
-     and we work with it's context
+     Here we create an instance of Storage,
+     it's time to fill it with data from
+     properties of our Singleton instance
      */
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -40,7 +41,6 @@
     /*
      Here we return an array, that contain the result of Core Data Storage request
      */
-    
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     _managedObjectContext = [appDelegate managedObjectContext];

@@ -26,7 +26,8 @@
         [location getCurrentLocation];
     /*
      After the end of the performing of this method, our Singleton object will be filled with 
-     all values we need to create dataBase
+     all values we need to fill dataBase
+     getCurrentLocation --> getWeather(+getCurrentTime) -->
      */
     
     return YES;

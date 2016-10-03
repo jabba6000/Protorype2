@@ -12,7 +12,7 @@
 
 @interface CurrentLocation()
 
-@property(strong, nonatomic)CurrentWeather *currentWeather;
+//@property(strong, nonatomic)CurrentWeather *currentWeather;
 
 @end
 
@@ -20,7 +20,7 @@
 {
     CLLocationManager *locationManager;
     
-    //these next 2 values to encode geodata to address
+    //these 2 instances to encode geodata to address
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
 }
@@ -35,7 +35,7 @@
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
-    //this to make the simulator enable to simulate location
+    //this is required to make the simulator enable to simulate location
     if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [locationManager requestWhenInUseAuthorization];
     }
@@ -54,13 +54,13 @@
 //Key delegate method for CLLocationManager
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
 {
-    //here we get the last point from array of points
+    //here we get the last point from array of points (of visited locations)
     CLLocation *crnLoc = [locations lastObject];
     
-    //to save battery let's stop updating
+    //to save device's battery let's stop updatingLocation
     [locationManager stopUpdatingLocation];
         
-    //Here we convert coordinates to real address and store it's values at Singleton object
+    //Here we convert coordinates to real address and store it's values at Singleton object inside block
     [geocoder reverseGeocodeLocation:crnLoc completionHandler:^(NSArray *placemarks, NSError *error)
      {
          if (error == nil && [placemarks count] > 0) {
@@ -79,7 +79,7 @@
              [Singleton sharedInstance].longitude = [NSString stringWithFormat:@"%.6f", crnLoc.coordinate.longitude];
              [Singleton sharedInstance].latitude = [NSString stringWithFormat:@"%.6f", crnLoc.coordinate.latitude];
              
-             //after Singleton has all address data, we will fire new method to collect weather-data
+             //when Singleton object has all address data, we will fire new method to collect weather data
              if([Singleton sharedInstance].address)
                  [self performSelectorOnMainThread:@selector(printAddress) withObject:nil waitUntilDone:YES];
          } else
@@ -91,7 +91,7 @@
     NSLog(@"zip: %@, lat: %@, long: %@, address: %@", [Singleton sharedInstance].zipcode, [Singleton sharedInstance].latitude, [Singleton sharedInstance].longitude, [Singleton sharedInstance].address);
     
     CurrentWeather *weather = [CurrentWeather new];
-    self.currentWeather = weather;
+//    self.currentWeather = weather;
     [weather getWeather];
 }
 

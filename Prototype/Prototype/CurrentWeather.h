@@ -11,11 +11,11 @@
 @interface CurrentWeather : NSObject
 
 /*
- To use access to Internet via Simulator nedd to add 1 Dicionary to plist:
+ To use access to Internet via Simulator we need to add 1 Dicionary to plist:
  App Transport Security Settings
- and a key:
+ with a key:
  Allow Arbitrary Loads (BOOL)
- with value set to: 
+ and with value set to: 
  YES
  */
 

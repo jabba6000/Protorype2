@@ -12,7 +12,8 @@
 @interface CurrentLocation : NSObject <CLLocationManagerDelegate>
 
 /*
- It necesary add 2 Strings to plist
+ To have the ability to simulate locations
+ it necesary to add 2 Strings to plist:
  NSLocationAlwaysUsageDescription
  NSLocationWhenInUseUsageDescription
  */

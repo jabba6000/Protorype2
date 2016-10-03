@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /*
- This class (its' properties) is used to collect and store all key values and pass 
- them to Core Data store
+ This class (its' properties) is used to collect and store temporary all key values (location + weather + time of request) before passing them to Core Data store
  */
 
 @interface Singleton : NSObject

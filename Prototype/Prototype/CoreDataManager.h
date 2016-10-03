@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+#import "AppDelegate.h" //imported, because core data stack is implemented in AppDelegate
 #import "Storage.h"
 
 @interface CoreDataManager : NSObject

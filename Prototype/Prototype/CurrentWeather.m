@@ -8,7 +8,7 @@
 
 #import "CurrentWeather.h"
 
-//inporting of key header of external library to parse data from XML
+//inporting of key headers of external library to parse data from XML
 #import "FKDataManager.h"
 #import "FKForecast.h"
 #import "FKLocation.h"
@@ -17,7 +17,7 @@
 
 @interface CurrentWeather()
 
-@property (strong, nonatomic) NSArray *forecasts;  //array store weather for 7 days
+@property (strong, nonatomic) NSArray *forecasts;  //this array will store weather for 7 days
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSString *zipcode;   
 
@@ -84,7 +84,8 @@
     self.forecasts = forecasts;
 }
 
-//No need to explain the meaning of this method
+//The temperature values are returned in Fahrenheit degrees
+//that's why I decided to convert them to Celcius
 -(NSNumber*)convertToCelcius: (NSNumber *)num
 {
     double unconvertedValue = [num intValue];
@@ -92,8 +93,8 @@
     return number;
 }
 
-//And we've added the request of current time to this class' methods
-//just not to create another class for such small issue
+//And we've added the request of current time to the methods of Current Weather class
+//just not to create another class for such a small work
 -(void)getCurrentTime{
     
     NSDateFormatter *formatter;
@@ -104,6 +105,7 @@
     
     dateString = [formatter stringFromDate:[NSDate date]];
     
+    //It will be the last piece of data collected by Singleton object
     [Singleton sharedInstance].timeOfRequest = dateString;
     NSLog(@"%@", [Singleton sharedInstance].timeOfRequest);
 }
