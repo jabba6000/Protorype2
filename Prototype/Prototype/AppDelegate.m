@@ -21,23 +21,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [self performSelectorOnMainThread:@selector(performRequest) withObject:nil waitUntilDone:YES];
+//    [self performSelectorOnMainThread:@selector(performRequest) withObject:nil waitUntilDone:YES];
 
-//        CurrentLocation *location = [CurrentLocation new];
-//        self.curLct = location;
-//        [location getCurrentLocation];
+        CurrentLocation *location = [CurrentLocation new];
+        self.curLct = location;
+        [location getCurrentLocation];
     /*
      After the end of the performing of this method, our Singleton object will be filled with 
      all values we need to create dataBase
      */
     
     return YES;
-}
-
--(void)performRequest{
-    CurrentLocation *location = [CurrentLocation new];
-    self.curLct = location;
-    [location getCurrentLocation];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
