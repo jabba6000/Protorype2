@@ -13,8 +13,8 @@
 
 -(void)saveToCoreDataStorage{
     /*
-     Данный метод создает экземпляр хранилища, открывает контекст для него
-     и кидает экземпляр с открытым контекстом внутрь массива
+     Here we create an instance of Storage-class, 
+     and we work with it's context
      */
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -29,18 +29,7 @@
     storage.latitude = [Singleton sharedInstance]. latitude;
     storage.weatherToday = [Singleton sharedInstance].weatherToday;
     
-    //And let's free all properties of SingletonObject
-    [Singleton sharedInstance].latitude = nil;
-    [Singleton sharedInstance].longitude = nil;
-    [Singleton sharedInstance].address = nil;
-    [Singleton sharedInstance].city = nil;
-    [Singleton sharedInstance].zipcode = nil;
-    [Singleton sharedInstance].weatherToday = nil;
-    [Singleton sharedInstance].weatherToday = nil;
-    [Singleton sharedInstance].weatherTomorrow = nil;
-
-    
-    //ЭТО СОХРАНЯЕТ ЗНАЧЕНИЕ КОНТЕКСТА в базу Core Data
+    //Saving data
     NSError *error = nil;
     if(![_managedObjectContext save:&error]){
     }
@@ -48,8 +37,11 @@
 }
 
 -(NSMutableArray *)getDataFromCoreDataStorage{
+    /*
+     Here we return an array, that contain the result of Core Data Storage request
+     */
     
-    //данный метод вызывает в массив значения из базы CoreData
+    
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     _managedObjectContext = [appDelegate managedObjectContext];
     

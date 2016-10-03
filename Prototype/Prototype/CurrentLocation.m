@@ -18,9 +18,9 @@
 
 @implementation CurrentLocation
 {
-    //Этот менеджер - ключевая фишка, чтобы отлавливать геоданные
     CLLocationManager *locationManager;
-    //эти две переменные чтобы конвертировать данные в конкретный адрес
+    
+    //these next 2 values to encode geodata to address
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
 }
@@ -29,50 +29,44 @@
     
     locationManager = [[CLLocationManager alloc] init];
     
-    //эта переменная для перекодирования геоданных в реальный адрес
+    //here we encode geodata
     geocoder = [[CLGeocoder alloc] init];
-    
-    //    ЗДЕСЬ НАЧИНАЕМ СОВМЕЩАТЬ
     
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
-    //эти две строчки для того, чтобы симулятор показывал эмулируемые геоточки
+    //this to make the simulator enable to simulate location
     if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [locationManager requestWhenInUseAuthorization];
     }
     
-    // данная команда иницирует обновление геоданных
-    // в нашем случае сработает разово после запуска приложения
-    // (тк в делегате останавливается сразу же)
     [locationManager startUpdatingLocation];
 }
 
 #pragma mark - CLLocationManagerDelegate
 
-//Это для того, чтобы отображать ошибки
+//To handle errors
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError: %@", error);
-    //Здесь потом можно АлертВью
 }
 
-//Это основной делегатный метод для CLLocationManager
+//Key delegate method for CLLocationManager
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
 {
-    //получаем последнюю точку из массива посещенных точек
+    //here we get the last point from array of points
     CLLocation *crnLoc = [locations lastObject];
     
-    //для экономии батарейки, останавливаем постоянное обновление геоданных
+    //to save battery let's stop updating
     [locationManager stopUpdatingLocation];
         
-    // Здесь осуществялется перекодировка геоданных в реальный адрес
+    //Here we convert coordinates to real address and store it's values at Singleton object
     [geocoder reverseGeocodeLocation:crnLoc completionHandler:^(NSArray *placemarks, NSError *error)
      {
          if (error == nil && [placemarks count] > 0) {
              placemark = [placemarks lastObject];
              
-             //страна, регион, город, улица, дом
+             //country, region, city, street, house
              [Singleton sharedInstance].address = [NSString stringWithFormat:@"%@, %@, %@, %@, %@",
                              placemark.country,
                              placemark.administrativeArea,
@@ -85,7 +79,7 @@
              [Singleton sharedInstance].longitude = [NSString stringWithFormat:@"%.6f", crnLoc.coordinate.longitude];
              [Singleton sharedInstance].latitude = [NSString stringWithFormat:@"%.6f", crnLoc.coordinate.latitude];
              
-             //как только мы получим все необходимые занчения, мы вызовем их сохрание или еще что-нить
+             //after Singleton has all address data, we will fire new method to collect weather-data
              if([Singleton sharedInstance].address)
                  [self performSelectorOnMainThread:@selector(printAddress) withObject:nil waitUntilDone:YES];
          } else

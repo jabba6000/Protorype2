@@ -8,6 +8,7 @@
 
 #import "CurrentWeather.h"
 
+//inporting of key header of external library to parse data from XML
 #import "FKDataManager.h"
 #import "FKForecast.h"
 #import "FKLocation.h"
@@ -16,7 +17,7 @@
 
 @interface CurrentWeather()
 
-@property (strong, nonatomic) NSArray *forecasts;  //storing weather for 7 days
+@property (strong, nonatomic) NSArray *forecasts;  //array store weather for 7 days
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSString *zipcode;   
 
@@ -29,6 +30,7 @@
     self.zipcode = [Singleton sharedInstance].zipcode;
     
     NSError *requestError = nil;
+    
     BOOL requested = [[FKDataManager sharedManager] requestForecastsForZipcode:self.zipcode
                                                                     completion:^(NSArray *forecasts, NSError *error)
     {
@@ -38,19 +40,19 @@
             
             FKForecast *forecast = [self.forecasts objectAtIndex:0]; //zero index - Today's weather
             
-            
-            
-            
+            //Here we collect currnet weather data
             [Singleton sharedInstance].weatherToday = [NSString stringWithFormat:@"Max %@°С | Min %@°С | Prec %@%%", [self convertToCelcius: forecast.maximumTemperature], [self convertToCelcius: forecast.minimumTemperature], forecast.probabilityOfPrecipitation];
             
             forecast = [self.forecasts objectAtIndex:1]; //zero index - Tomorrow's weather
             
+            //Here we collect tomorrow's weather data
             [Singleton sharedInstance].weatherTomorrow = [NSString stringWithFormat:@"Max %@°С | Min %@°С | Prec %@%%", [self convertToCelcius: forecast.maximumTemperature], [self convertToCelcius: forecast.minimumTemperature], forecast.probabilityOfPrecipitation];
             
             if(forecast)
                 NSLog(@"%@, %@", [Singleton sharedInstance].weatherToday, [Singleton sharedInstance].weatherTomorrow);
             
             [self getCurrentTime];
+            //After the performing of this method Singletone will have all values we need
         }
     }
     error:&requestError];
@@ -91,6 +93,7 @@
 }
 
 //And we've added the request of current time to this class' methods
+//just not to create another class for such small issue
 -(void)getCurrentTime{
     
     NSDateFormatter *formatter;

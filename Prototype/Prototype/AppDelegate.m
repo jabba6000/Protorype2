@@ -21,8 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-//    [self performSelectorOnMainThread:@selector(performRequest) withObject:nil waitUntilDone:YES];
-
         CurrentLocation *location = [CurrentLocation new];
         self.curLct = location;
         [location getCurrentLocation];

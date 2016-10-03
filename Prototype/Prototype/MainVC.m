@@ -13,7 +13,7 @@
 @interface MainVC()
 
 @property (strong, nonatomic) CoreDataManager *myManager;
-@property(strong, nonatomic) NSString *weatherForTomorrowTmp; //it's for temporary data
+@property (strong, nonatomic) IBOutlet UIButton *myButtonView;
 
 @end
 
@@ -21,38 +21,46 @@
 
 - (IBAction)getForecastButton:(UIButton *)sender {
     
-    NSLog(@"%@", [Singleton sharedInstance].weatherTomorrow);
+    //Yes, I know that warinig is shown here
+    //Tryed to use modern UIAlertController, but there was a popular iOS'9 bug
+    //that's why decided not to handle with this issue, but use old good UIAlertView
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Weather For Tommorow"
+                                                    message:[Singleton sharedInstance].weatherTomorrow
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 -(void)viewDidLoad{
 
+    //while there is no forecast data, button is not enable
+    self.myButtonView.enabled=NO;
+    
     CoreDataManager *mngr = [CoreDataManager new];
     self.myManager = mngr;
     
-    //Here we observing Singleton last value. When It has this value, the observer will fire
+    //Here we observing Singleton's final value. When It recieves this value, the observer will fire,
+    //because since that moment Singleton object will have all needed values
     [[Singleton sharedInstance] addObserver:self forKeyPath:@"timeOfRequest" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 }
 
-
--(void)viewWillAppear{
-    
-}
-
-//Method that will fire after Singleton carrier will collect all values
+//Method that will fire after Singleton carrier will collect all values (timeOfRequest - is the last one)
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    NSLog(@"Now Singletone carrier has all values");
+    NSLog(@"Now Singleton carrier has all values");
+    
+    self.myButtonView.enabled=YES;
     
     //Let's add all data to labels
     self.coordinatesLabel.text = [NSString stringWithFormat:@"%@,\n%@", [Singleton sharedInstance].longitude, [Singleton sharedInstance].latitude];
     self.addressLabel.text = [NSString stringWithFormat:@"%@", [Singleton sharedInstance].address];
     self.weatherLabel.text = [NSString stringWithFormat:@"%@", [Singleton sharedInstance].weatherToday];
     
-    //and add weather for tomorrow value, it won't be stored in Core Data Stirage
-    self.weatherForTomorrowTmp = [Singleton sharedInstance].weatherTomorrow;
-    
+    //Now we have all data we need, so we reloading View
     [self reloadInputViews];
     
+    //At the end swe aving all data to CoreData Storage
     [self.myManager saveToCoreDataStorage];
 }
 

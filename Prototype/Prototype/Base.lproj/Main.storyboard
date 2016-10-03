@@ -200,6 +200,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="ygW-U8-Es7" id="DEP-5Y-9nE"/>
                         <outlet property="coordinatesLabel" destination="8Jm-ks-7qq" id="kDD-eA-WLE"/>
+                        <outlet property="myButtonView" destination="HCa-BU-2VZ" id="kzh-xI-Dmk"/>
                         <outlet property="weatherLabel" destination="njU-kh-3Nx" id="ArR-T2-71C"/>
                     </connections>
                 </viewController>

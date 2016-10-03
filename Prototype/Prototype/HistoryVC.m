@@ -23,12 +23,7 @@
     
     CoreDataManager *mngr = [CoreDataManager new];
     self.myManager = mngr;
-    NSLog(@"Now %lu objects in History", [[self.myManager getDataFromCoreDataStorage] count]);
-}
-
--(void)viewWillAppear{
-    //эта обновляет значения тайтлов в таблице после их редактирования в DetailVC
-    [self.myTableView reloadData];
+    NSLog(@"Now %lu objects in AppHistory", (unsigned long)[[self.myManager getDataFromCoreDataStorage] count]);
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -54,13 +49,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    //Здесь мы обеспечиваем переход на второй экран по нажатию на ячейку
-    
     /*
-     Сначала мы берем и делаем VC из того, что есть в сториБорде.
-     Затем определяем для него делегата - self, то есть CustomVC
-     Затем по номеру выделенной ячейки берем объект из массива, который передадим в  DetailVC
-     Наконец вызываем переход на DetailVC
+     When we touch a cell in tableView we will call DetailVC with all archieve data of some past request
      */
     
     self.myDetailVC = [self.storyboard
@@ -68,8 +58,7 @@
     
     Storage *storage = [(NSMutableArray *)[self.myManager getDataFromCoreDataStorage] objectAtIndex:indexPath.row];
     
-//    self.myDetailVC.delegate = self;
-//
+    //To pass the data between these two view  controllers, we use DetailVC's property "note"
     self.myDetailVC.note = [NSString stringWithFormat:@"At the moment:\n %@\nAt this address:\n%@\nWith coordinates:\n%@,\n%@\n The weather was:\n %@", storage.time, storage.address, storage.latitude, storage.longitude, storage.weatherToday];
 
     self.myDetailVC.hidesBottomBarWhenPushed = YES;
