@@ -10,4 +10,9 @@
 
 @implementation DetailVC
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.label.text = self.note;
+}
+
 @end

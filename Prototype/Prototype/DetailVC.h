@@ -10,4 +10,8 @@
 
 @interface DetailVC : UIViewController
 
+@property(strong, nonatomic) NSString *note;
+
+@property (strong, nonatomic) IBOutlet UILabel *label;
+
 @end

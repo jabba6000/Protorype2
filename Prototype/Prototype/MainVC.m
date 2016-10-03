@@ -41,10 +41,10 @@
 //Method that will fire after Singleton carrier will collect all values
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    NSLog(@"Now Singletone carrier now has all values");
+    NSLog(@"Now Singletone carrier has all values");
     
     //Let's add all data to labels
-    self.coordinatesLabel.text = [NSString stringWithFormat:@"%@,  %@", [Singleton sharedInstance].longitude, [Singleton sharedInstance].latitude];
+    self.coordinatesLabel.text = [NSString stringWithFormat:@"%@,\n%@", [Singleton sharedInstance].longitude, [Singleton sharedInstance].latitude];
     self.addressLabel.text = [NSString stringWithFormat:@"%@", [Singleton sharedInstance].address];
     self.weatherLabel.text = [NSString stringWithFormat:@"%@", [Singleton sharedInstance].weatherToday];
     

@@ -18,6 +18,6 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 -(void)saveToCoreDataStorage;
--(NSArray *)getDataFromCoreDataStorage;
+-(NSMutableArray *)getDataFromCoreDataStorage;
 
 @end

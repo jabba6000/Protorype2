@@ -44,7 +44,7 @@
     NSError *error = nil;
     if(![_managedObjectContext save:&error]){
     }
-    NSLog(@"Objects are saved?");
+    NSLog(@"Objects are saved");
 }
 
 -(NSMutableArray *)getDataFromCoreDataStorage{
@@ -65,11 +65,6 @@
         //handle error
     }
         
-//    NSMutableArray *arrayWithData = [NSMutableArray new];
-//    
-//    [arrayWithData arrayByAddingObjectsFromArray:mutableFetchResults];
-    
-//    return arrayWithData;
     return mutableFetchResults;
 }
 

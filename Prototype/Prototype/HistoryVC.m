@@ -43,11 +43,11 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Storage *storage = [(NSArray *)[self.myManager getDataFromCoreDataStorage] objectAtIndex:indexPath.row];
+    Storage *storage = [(NSMutableArray *)[self.myManager getDataFromCoreDataStorage] objectAtIndex:indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell" forIndexPath:indexPath];
     cell.textLabel.text = storage.time;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@, %@", storage.latitude, storage.longitude, storage.city];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, (%@, %@)", storage.city, storage.latitude, storage.longitude];
 
     return cell;
 }
@@ -66,9 +66,11 @@
     self.myDetailVC = [self.storyboard
                        instantiateViewControllerWithIdentifier:@"Detail"];
     
+    Storage *storage = [(NSMutableArray *)[self.myManager getDataFromCoreDataStorage] objectAtIndex:indexPath.row];
+    
 //    self.myDetailVC.delegate = self;
 //
-//    self.myDetailVC.storage = [self.arrayForCoreData objectAtIndex:indexPath.row];
+    self.myDetailVC.note = [NSString stringWithFormat:@"At the moment:\n %@\nAt this address:\n%@\nWith coordinates:\n%@,\n%@\n The weather was:\n %@", storage.time, storage.address, storage.latitude, storage.longitude, storage.weatherToday];
 
     self.myDetailVC.hidesBottomBarWhenPushed = YES;
 
