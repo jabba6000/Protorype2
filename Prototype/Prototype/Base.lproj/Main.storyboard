@@ -167,21 +167,35 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EkK-a0-hys">
+                                <rect key="frame" x="177" y="157" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EQb-Tl-sg6">
+                                <rect key="frame" x="177" y="353" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="f4s-Z5-od7">
+                                <rect key="frame" x="177" y="559" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.71408960210000005" green="0.95434331220000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="njU-kh-3Nx" firstAttribute="leading" secondItem="3q1-gB-she" secondAttribute="leading" id="0Uy-zt-JM8"/>
                             <constraint firstItem="njU-kh-3Nx" firstAttribute="top" secondItem="3q1-gB-she" secondAttribute="bottom" constant="8" symbolic="YES" id="23Z-ZG-cuQ"/>
                             <constraint firstItem="3q1-gB-she" firstAttribute="trailing" secondItem="njU-kh-3Nx" secondAttribute="trailing" id="5Y4-zp-H5y"/>
+                            <constraint firstItem="EkK-a0-hys" firstAttribute="centerY" secondItem="8Jm-ks-7qq" secondAttribute="centerY" id="5vX-hE-8if"/>
                             <constraint firstItem="nqS-Cx-MV6" firstAttribute="leading" secondItem="ygW-U8-Es7" secondAttribute="leading" id="8Xa-40-OEo"/>
+                            <constraint firstItem="f4s-Z5-od7" firstAttribute="centerY" secondItem="njU-kh-3Nx" secondAttribute="centerY" id="9UQ-gO-eno"/>
                             <constraint firstItem="HCa-BU-2VZ" firstAttribute="top" secondItem="f08-xd-Fls" secondAttribute="bottom" id="APq-x9-IAM"/>
                             <constraint firstItem="nqS-Cx-MV6" firstAttribute="top" secondItem="8Jm-ks-7qq" secondAttribute="bottom" constant="8" symbolic="YES" id="F1Z-A7-F2B"/>
+                            <constraint firstItem="EkK-a0-hys" firstAttribute="centerX" secondItem="8Jm-ks-7qq" secondAttribute="centerX" id="Grc-MU-ZSa"/>
+                            <constraint firstItem="EQb-Tl-sg6" firstAttribute="centerY" secondItem="ygW-U8-Es7" secondAttribute="centerY" id="K62-X7-Cux"/>
                             <constraint firstItem="ygW-U8-Es7" firstAttribute="top" secondItem="nqS-Cx-MV6" secondAttribute="bottom" constant="8" symbolic="YES" id="KpY-EX-g0T"/>
                             <constraint firstItem="3q1-gB-she" firstAttribute="leading" secondItem="ygW-U8-Es7" secondAttribute="leading" id="Kv3-og-9x6"/>
                             <constraint firstItem="8Jm-ks-7qq" firstAttribute="leading" secondItem="nqS-Cx-MV6" secondAttribute="leading" id="OFK-Kv-JbN"/>
                             <constraint firstItem="6Rp-Ry-poG" firstAttribute="top" secondItem="HCa-BU-2VZ" secondAttribute="bottom" constant="8" symbolic="YES" id="OJo-oU-WHW"/>
                             <constraint firstItem="ygW-U8-Es7" firstAttribute="trailing" secondItem="3q1-gB-she" secondAttribute="trailing" id="SAH-xD-F9Z"/>
                             <constraint firstItem="8Jm-ks-7qq" firstAttribute="top" secondItem="6Rp-Ry-poG" secondAttribute="bottom" constant="8" symbolic="YES" id="T4q-Ex-gda"/>
+                            <constraint firstItem="EQb-Tl-sg6" firstAttribute="leading" secondItem="f4s-Z5-od7" secondAttribute="leading" id="UHQ-n1-g2F"/>
                             <constraint firstItem="3q1-gB-she" firstAttribute="top" secondItem="ygW-U8-Es7" secondAttribute="bottom" constant="8" symbolic="YES" id="cZc-g4-83P"/>
                             <constraint firstItem="QVd-YO-Zbe" firstAttribute="top" secondItem="njU-kh-3Nx" secondAttribute="bottom" constant="8" symbolic="YES" id="f7z-Yc-liZ"/>
                             <constraint firstItem="6Rp-Ry-poG" firstAttribute="leading" secondItem="c7y-Es-hRb" secondAttribute="leadingMargin" constant="4" id="fL2-9a-dNP"/>
@@ -190,6 +204,7 @@
                             <constraint firstItem="6Rp-Ry-poG" firstAttribute="centerX" secondItem="HCa-BU-2VZ" secondAttribute="centerX" id="jxk-95-8cc"/>
                             <constraint firstItem="8Jm-ks-7qq" firstAttribute="leading" secondItem="6Rp-Ry-poG" secondAttribute="leading" id="l5G-rZ-RAH"/>
                             <constraint firstItem="8Jm-ks-7qq" firstAttribute="trailing" secondItem="nqS-Cx-MV6" secondAttribute="trailing" id="lcx-yc-lUT"/>
+                            <constraint firstItem="EQb-Tl-sg6" firstAttribute="leading" secondItem="EkK-a0-hys" secondAttribute="leading" id="sO4-ke-aPS"/>
                             <constraint firstItem="ygW-U8-Es7" firstAttribute="trailing" secondItem="nqS-Cx-MV6" secondAttribute="trailing" id="xsh-aN-bMH"/>
                         </constraints>
                     </view>
@@ -198,6 +213,9 @@
                         <keyCommand/>
                     </keyCommands>
                     <connections>
+                        <outlet property="activityIndOne" destination="EkK-a0-hys" id="xdi-zb-0BD"/>
+                        <outlet property="activityIndThree" destination="f4s-Z5-od7" id="TOq-c4-rR7"/>
+                        <outlet property="activityIndTwo" destination="EQb-Tl-sg6" id="Mga-7F-QQF"/>
                         <outlet property="addressLabel" destination="ygW-U8-Es7" id="DEP-5Y-9nE"/>
                         <outlet property="coordinatesLabel" destination="8Jm-ks-7qq" id="kDD-eA-WLE"/>
                         <outlet property="myButtonView" destination="HCa-BU-2VZ" id="kzh-xI-Dmk"/>

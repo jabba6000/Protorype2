@@ -11,6 +11,9 @@
 #import "CoreDataManager.h"
 
 @interface MainVC()
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndOne;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndTwo;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndThree;
 
 @property (strong, nonatomic) CoreDataManager *myManager;
 @property (strong, nonatomic) IBOutlet UIButton *myButtonView;
@@ -37,6 +40,15 @@
     //while there is no forecast data, button is not enable
     self.myButtonView.enabled=NO;
     
+    //Here we handle with activity indicators (start them while no data in Singleton object)
+    [self.activityIndOne startAnimating];
+    [self.activityIndTwo startAnimating];
+    [self.activityIndThree startAnimating];
+    self.activityIndOne.hidesWhenStopped=YES;
+    self.activityIndTwo.hidesWhenStopped=YES;
+    self.activityIndThree.hidesWhenStopped=YES;
+
+    
     CoreDataManager *mngr = [CoreDataManager new];
     self.myManager = mngr;
     
@@ -49,6 +61,11 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     NSLog(@"Now Singleton carrier has all values");
+    
+    //Stop activity Indicators, because we have all data now
+    [self.activityIndOne stopAnimating];
+    [self.activityIndTwo stopAnimating];
+    [self.activityIndThree stopAnimating];
     
     self.myButtonView.enabled=YES;
     
