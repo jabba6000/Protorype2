@@ -9,11 +9,11 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Storage.h"
+#import "WeatherInformation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Storage (CoreDataProperties)
+@interface WeatherInformation (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *city;
 @property (nullable, nonatomic, retain) NSString *address;

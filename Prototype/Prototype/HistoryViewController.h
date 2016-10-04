@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HistoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 

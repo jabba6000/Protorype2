@@ -9,9 +9,9 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Storage+CoreDataProperties.h"
+#import "WeatherInformation+CoreDataProperties.h"
 
-@implementation Storage (CoreDataProperties)
+@implementation WeatherInformation (CoreDataProperties)
 
 @dynamic city;
 @dynamic address;

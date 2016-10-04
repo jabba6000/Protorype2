@@ -7,29 +7,26 @@
 //
 
 #import "AppDelegate.h"
-#import "CurrentLocation.h"
-#import "Singleton.h"
+#import "LocationRequestManager.h"
+#import "DataCollector.h"
 
 @interface AppDelegate ()
 
-@property(strong, nonatomic)CurrentLocation *curLct;
+@property (strong, nonatomic) LocationRequestManager *curentLocation;
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-        CurrentLocation *location = [CurrentLocation new];
-        self.curLct = location;
-        [location getCurrentLocation];
+    LocationRequestManager *location = [LocationRequestManager new];
+    self.curentLocation = location;
+    [location getCurrentLocation];
     /*
      After the end of the performing of this method, our Singleton object will be filled with 
      all values we need to fill dataBase
-     getCurrentLocation --> getWeather(+getCurrentTime) -->
+     getCurrentLocation --> getWeather(+getCurrentTime) --> ...
      */
-    
     return YES;
 }
 

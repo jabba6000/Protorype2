@@ -6,12 +6,11 @@
 //  Copyright © 2016 Andrei Karpenia. All rights reserved.
 //
 
-#import "DetailVC.h"
+#import "DetailViewController.h"
 
-@implementation DetailVC
+@implementation DetailViewController
 
--(void)viewWillAppear:(BOOL)animated{
-    
+- (void)viewWillAppear:(BOOL)animated {
     self.label.text = self.note;
 }
 

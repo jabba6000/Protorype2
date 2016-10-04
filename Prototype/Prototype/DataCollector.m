@@ -6,13 +6,13 @@
 //  Copyright © 2016 Andrei Karpenia. All rights reserved.
 //
 
-#import "Singleton.h"
+#import "DataCollector.h"
 
-@implementation Singleton
+@implementation DataCollector
 
-+(Singleton *)sharedInstance{
++ (DataCollector *)sharedInstance {
     static dispatch_once_t pred;
-    static Singleton *sharedInstance = nil;
+    static DataCollector *sharedInstance = nil;
     dispatch_once(&pred, ^{
         sharedInstance = [[self alloc] init];
     });

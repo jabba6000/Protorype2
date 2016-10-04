@@ -9,7 +9,7 @@
         <!--Archive Note-->
         <scene sceneID="6xK-RH-s42">
             <objects>
-                <viewController storyboardIdentifier="Detail" title="Archive Note" id="nb3-jC-2CF" customClass="DetailVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" title="Archive Note" id="nb3-jC-2CF" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="09H-Uu-phM"/>
                         <viewControllerLayoutGuide type="bottom" id="vbq-tM-4Bm"/>
@@ -46,7 +46,7 @@
         <!--History-->
         <scene sceneID="4GC-yW-CER">
             <objects>
-                <viewController title="History" id="GIT-uD-UXN" customClass="HistoryVC" sceneMemberID="viewController">
+                <viewController title="History" id="GIT-uD-UXN" customClass="HistoryViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="PBj-As-q33">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -94,7 +94,7 @@
         <!--Main Screen-->
         <scene sceneID="6Sm-UN-B8b">
             <objects>
-                <viewController id="dHu-hj-miW" customClass="MainVC" sceneMemberID="viewController">
+                <viewController id="dHu-hj-miW" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f08-xd-Fls"/>
                         <viewControllerLayoutGuide type="bottom" id="QVd-YO-Zbe"/>

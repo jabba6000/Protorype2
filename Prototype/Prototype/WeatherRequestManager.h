@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CurrentWeather : NSObject
+@interface WeatherRequestManager : NSObject
 
 /*
  To use access to Internet via Simulator we need to add 1 Dicionary to plist:
@@ -31,7 +31,6 @@
  2)based on zipcode
  I decided to use the last one, at this moment Singleton object already has required zipcode
  */
-
--(void)getWeather;
+- (void)getWeather;
 
 @end

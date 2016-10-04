@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-/*
- This class (its' properties) is used to collect and store temporary all key values (location + weather + time of request) before passing them to Core Data store
- */
+// This singleton (its' properties) is used to collect and store temporary all key values (location + weather + time of request) before passing them to Core Data store
 
-@interface Singleton : NSObject
+@interface DataCollector : NSObject
 
 @property (strong, nonatomic) NSString *latitude;
 @property (strong, nonatomic) NSString *longitude;
@@ -23,6 +21,6 @@
 @property (strong, nonatomic) NSString *weatherTomorrow;
 @property (strong, nonatomic) NSString *timeOfRequest;
 
-+(Singleton *)sharedInstance;
++(DataCollector *)sharedInstance;
 
 @end

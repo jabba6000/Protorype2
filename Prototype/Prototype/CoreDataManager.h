@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AppDelegate.h" //imported, because core data stack is implemented in AppDelegate
-#import "Storage.h"
+#import "AppDelegate.h" // imported, because core data stack is implemented in AppDelegate
+#import "WeatherInformation.h"
 
 @interface CoreDataManager : NSObject
 
@@ -16,7 +16,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
--(void)saveToCoreDataStorage;
--(NSMutableArray *)getDataFromCoreDataStorage;
+- (void)saveToCoreDataStorage;
+- (NSMutableArray *)getDataFromCoreDataStorage;
 
 @end

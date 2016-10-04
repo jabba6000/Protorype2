@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailVC : UIViewController
+@interface DetailViewController : UIViewController
 
-@property(strong, nonatomic) NSString *note;
+@property (strong, nonatomic) NSString *note;
 @property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end

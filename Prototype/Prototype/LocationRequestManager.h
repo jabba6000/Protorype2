@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface CurrentLocation : NSObject <CLLocationManagerDelegate>
+@interface LocationRequestManager : NSObject <CLLocationManagerDelegate>
 
 /*
  To have the ability to simulate locations
@@ -17,6 +17,6 @@
  NSLocationAlwaysUsageDescription
  NSLocationWhenInUseUsageDescription
  */
--(void)getCurrentLocation;
+- (void)getCurrentLocation;
 
 @end

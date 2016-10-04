@@ -6,9 +6,9 @@
 //  Copyright © 2016 Andrei Karpenia. All rights reserved.
 //
 
-#import "Storage.h"
+#import "WeatherInformation.h"
 
-@implementation Storage
+@implementation WeatherInformation
 
 // Insert code here to add functionality to your managed object subclass
 
